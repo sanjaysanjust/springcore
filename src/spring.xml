@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+"http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<bean id="traingleWithSetterInjection" class="org.source.TraingleWithSetterInjection">
+		<property name="type" value="Equilateral"></property>
+
+	</bean>
+	<bean id="trainglewithConstuctor" class="org.source.TrainglewithConstuctor">
+		<constructor-arg value="Equilateral"></constructor-arg>
+		<constructor-arg value="20"></constructor-arg>
+	</bean>
+
+	<bean id="trainglewithObjectInjection" class="org.source.TrainglewithObjectInjection">
+		<property name="pointA" ref="zeropoint"></property>
+		<property name="pointB" ref="twopoint"></property>
+		<property name="pointC" ref="threepoint"></property>
+	</bean>
+
+	<bean id="trainglewithCollection" class="org.source.TrainglewithCollection">
+		<property name="pointList">
+			<list>
+			
+				<ref bean="zeropoint" />
+				<ref bean="twopoint" />
+				<ref bean="threepoint" />
+			</list>
+		</property>
+	</bean>
+
+	<bean id="trainglewithAutoWireByName" class="org.source.TrainglewithAutoWireByName"
+		autowire="byName">
+
+	</bean>
+	<bean id="exampleApllicationContextAware" class="org.source.ExampleApllicationContextAware">
+		<property name="pointA" ref="zeropoint"></property>
+		<property name="pointB" ref="twopoint"></property>
+		<property name="pointC" ref="threepoint"></property>
+	</bean>
+
+
+
+	<bean id="zeropoint" class="org.source.Point">
+		<property name="x" value="0"></property>
+		<property name="y" value="0"></property>
+	</bean>
+	<bean id="twopoint" class="org.source.Point">
+		<property name="x" value="0"></property>
+		<property name="y" value="-20"></property>
+	</bean>
+	<bean id="threepoint" class="org.source.Point">
+		<property name="x" value="20"></property>
+		<property name="y" value="0"></property>
+	</bean>
+</beans>
